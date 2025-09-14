@@ -1,0 +1,62 @@
+app = 'automation-hiring-challenge'
+primary_region = 'ord'
+
+[build]
+
+[env]
+  APP_ENV = 'production'
+  LOG_CHANNEL = 'stderr'
+  LOG_STDERR_FORMATTER = 'Monolog\Formatter\JsonFormatter'
+  SESSION_DRIVER = 'cookie'
+  BROADCAST_DRIVER = 'log'
+  CACHE_DRIVER = 'array'
+  QUEUE_CONNECTION = 'sync'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+
+[[http_service.checks]]
+  interval = '10s'
+  timeout = '2s'
+  grace_period = '5s'
+  method = 'GET'
+  path = '/'
+  protocol = 'http'
+  tls_skip_verify = false
+
+[processes]
+  app = 'php artisan serve --host=0.0.0.0 --port=8080'
+
+[[services]]
+  protocol = 'tcp'
+  internal_port = 8080
+  processes = ['app']
+
+  [[services.ports]]
+    port = 80
+    handlers = ['http']
+    force_https = true
+
+  [[services.ports]]
+    port = 443
+    handlers = ['tls', 'http']
+
+  [services.concurrency]
+    type = 'connections'
+    hard_limit = 1000
+    soft_limit = 1000
+
+# Build configuration that handles both Laravel backend and React frontend
+[build.args]
+  NODE_VERSION = "20"
+  PHP_VERSION = "8.2"
