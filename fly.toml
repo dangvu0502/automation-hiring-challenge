@@ -13,7 +13,7 @@ primary_region = 'ord'
   QUEUE_CONNECTION = 'sync'
 
 [http_service]
-  internal_port = 8080
+  internal_port = 80
   force_https = true
   auto_stop_machines = true
   auto_start_machines = true
@@ -35,26 +35,9 @@ primary_region = 'ord'
   tls_skip_verify = false
 
 [processes]
-  app = 'php artisan serve --host=0.0.0.0 --port=8080'
+  app = '/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf'
 
-[[services]]
-  protocol = 'tcp'
-  internal_port = 8080
-  processes = ['app']
-
-  [[services.ports]]
-    port = 80
-    handlers = ['http']
-    force_https = true
-
-  [[services.ports]]
-    port = 443
-    handlers = ['tls', 'http']
-
-  [services.concurrency]
-    type = 'connections'
-    hard_limit = 1000
-    soft_limit = 1000
+# Services handled by http_service above
 
 # Build configuration that handles both Laravel backend and React frontend
 [build.args]

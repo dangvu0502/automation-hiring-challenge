@@ -1,0 +1,70 @@
+# Version control
+.git
+.gitignore
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build outputs
+/public/hot
+/public/storage
+/storage/*.key
+/storage/logs
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+
+# Environment files
+.env
+.env.backup
+.env.production
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Testing
+/coverage
+/tests/Browser/screenshots
+/tests/Browser/console
+/tests/E2E/node_modules
+/tests/E2E/test-results
+/tests/E2E/playwright-report
+
+# Laravel specific
+/bootstrap/cache/*.php
+/storage/app/*
+!/storage/app/.gitignore
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+/storage/logs/*
+!/storage/logs/.gitignore
+
+# Temporary files
+*.log
+*.tmp
+*.cache
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE
+*.md
+
+# Docker files (avoid recursion)
+Dockerfile
+docker-compose.yml
+.dockerignore
