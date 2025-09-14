@@ -35,9 +35,6 @@ primary_region = 'sin'
   protocol = 'http'
   tls_skip_verify = false
 
-[processes]
-  app = '/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf'
-
 # Services handled by http_service above
 
 # Build configuration that handles both Laravel backend and React frontend
