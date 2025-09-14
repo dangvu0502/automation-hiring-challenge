@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\OrdersController;
 
 Route::get('/', function () {
-    return Inertia::render('welcome');
-})->name('home');
+    return redirect('/order');
+});
+
+Route::get('/order', [OrdersController::class, 'create'])->name('orders.create');
+Route::post('/order', [OrdersController::class, 'store'])->name('orders.store');
