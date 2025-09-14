@@ -1,5 +1,5 @@
 app = 'automation-hiring-challenge'
-primary_region = 'ord'
+primary_region = 'sin'
 
 [build]
 
@@ -11,6 +11,7 @@ primary_region = 'ord'
   BROADCAST_DRIVER = 'log'
   CACHE_DRIVER = 'array'
   QUEUE_CONNECTION = 'sync'
+  SUPERVISOR_PHP_USER = 'sail'
 
 [http_service]
   internal_port = 80
