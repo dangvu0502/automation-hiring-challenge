@@ -5,9 +5,12 @@ primary_region = 'sin'
 
 [env]
   APP_ENV = 'production'
+  APP_URL = 'https://automation-hiring-challenge.fly.dev'
+  ASSET_URL = 'https://automation-hiring-challenge.fly.dev'
   LOG_CHANNEL = 'stderr'
   LOG_STDERR_FORMATTER = 'Monolog\Formatter\JsonFormatter'
   SESSION_DRIVER = 'cookie'
+  SESSION_SECURE_COOKIE = 'true'
   BROADCAST_DRIVER = 'log'
   CACHE_DRIVER = 'array'
   QUEUE_CONNECTION = 'sync'
