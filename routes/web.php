@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrdersController;
 
+Route::get('/healthz', function () {
+    return response()->json(['status' => 'ok']);
+});
+
 Route::get('/', function () {
     return redirect('/order');
 });
