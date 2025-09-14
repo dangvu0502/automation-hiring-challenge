@@ -21,14 +21,14 @@ We do encourage you to use AI automation to help solve this task. However, pleas
 
    Notes:
 
-   * There are some obstacles with the "bring domains" field. Work on the other fields first.
+   * There are some obstacles with the "buy domains" field. The "bring domains" field is easier. Work on the other fields first.
    * You should `console.log` the Order ID when the order has been successfully created.
    * You can use the deployment at fly.io or run `composer dev` locally.
 
 ### Grading
 
 - [ ] You sucessfully created an order.
-- [ ] You filled in the "bring domains" field.
+- [ ] You filled in the "buy domains" field.
 - [ ] Your code is structured logically and uses modularization (functions, classes, etc.) where appropriate
 
 ## Task 2: Domain Check (Laravel)
